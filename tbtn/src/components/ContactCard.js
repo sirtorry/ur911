@@ -97,8 +97,8 @@ class ContactCard extends Component {
             </div>
         </div>
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <DropdownButton title="Call?" onChange={}>
-                <MenuItem eventKey="1" onClick>Call</MenuItem>
+            <DropdownButton title="Call?" >
+                <MenuItem eventKey="1" >Call</MenuItem>
                 <MenuItem divider />
                 <MenuItem eventKey="2" active>Text</MenuItem>
             </DropdownButton>
