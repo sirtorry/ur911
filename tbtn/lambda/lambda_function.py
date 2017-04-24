@@ -24,7 +24,7 @@ def lambda_handler(event, context):
 def send(original, number):
     message = original + ' - message received from ' + number
 
-    callCentLocs = {'Albemarle':'4344666408', 'Arlington':'4344666408'}
+    callCentLocs = {'Albemarle':'1111111111', 'Arlington':'2222222222'}
     callList = []
     textList = []
 
@@ -44,9 +44,6 @@ def send(original, number):
                 textList.append(item)
             else:
                 callList.append(item)
-
-    account_sid = 'AC70b114ccd109696bfd5701a9abf3df16'
-    auth_token = '77a81b27897d2b3a6018d29e2b3065c1'
 
     client = Client(account_sid, auth_token)
     for item in textList:

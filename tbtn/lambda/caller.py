@@ -7,9 +7,9 @@ from twilio.twiml.voice_response import VoiceResponse
 
 def call_police(event, context):
     # Your Account SID from twilio.com/console
-    account_sid = "AC70b114ccd109696bfd5701a9abf3df16"
+    account_sid = ""
     # Your Auth Token from twilio.com/console
-    auth_token = "77a81b27897d2b3a6018d29e2b3065c1"
+    auth_token = ""
 
     client = Client(account_sid, auth_token)
 
