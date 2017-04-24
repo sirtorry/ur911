@@ -1,0 +1,5 @@
+# Requirements for Ur911
+boto3
+json
+requests
+twilio
