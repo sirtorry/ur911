@@ -13,8 +13,20 @@ def call_police(event, context):
 
     client = Client(account_sid, auth_token)
 
-    incoming = client.messages.list()[1]
-    message = str(incoming.body)
+    x = 0
+    while x!= -1:
+        incoming = client.messages.list()[x]
+        number = str(incoming.from_)
+        x += 1
+        if number != '+12025591352':
+            x = -1
+
+    number = str(incoming.from_)
+    readNum = ''
+    for item in number[2:]:
+        readNum += ' ' + item
+    
+    message = str(incoming.body) + ' this message was sent from' + readNum
 
     return '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n\t<Say>' + message + '</Say>\n</Response>'
 

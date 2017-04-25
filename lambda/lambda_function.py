@@ -16,12 +16,12 @@ def lambda_handler(event, context):
     message = str(incoming.body)
     number = str(incoming.from_)
 
-    send(message, number[2:])
+    send(message, number[2:], account_sid, auth_token)
 
     return '<?xml version=\"1.0\" encoding=\"UTF-8\"?>'\
            '<Response><Message> Message sent.</Message></Response>'
 
-def send(original, number):
+def send(original, number, account_sid, auth_token):
     message = original + ' - message received from ' + number
 
     callCentLocs = {'Albemarle':'1111111111', 'Arlington':'2222222222'}
