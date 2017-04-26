@@ -26,7 +26,7 @@ def call_police(event, context):
     for item in number[2:]:
         readNum += ' ' + item
     
-    message = str(incoming.body) + ' this message was sent from' + readNum
+    message = str(incoming.body) + ' - message received from' + readNum
 
     return '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Response>\n\t<Say>' + message + '</Say>\n</Response>'
 
