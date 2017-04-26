@@ -30,12 +30,28 @@ class ClientCard extends Component {
     })
   }
 
-  updateLocation(value) {
-    this.setState({activeLocation: 'all'});
-    this.props.setLocation('ufgx');
-    console.log(this.props.location);
+  setAlbemarle() {
+    this.props.setLocation("Albemarle");
+    this.setState({
+      activeLocation: "Albemarle"
+    })
   }
-   
+
+  setArlington() {
+    this.props.setLocation("Arlington");
+    this.setState({
+      activeLocation: "Arlington"
+    })
+  }
+  
+  setYes() {
+    this.props.setCall("Yes");
+  }
+
+  setNo() {
+    this.props.setCall("No");
+  }
+
   render() {
     return (
       <div key={this.props.i} value={this.props.i} className="row">
@@ -45,18 +61,18 @@ class ClientCard extends Component {
             <h4>Your number: {this.props.number}</h4>
             </div>
             <div className="input-group">
-                Do you want to disable this service?:   
+                If this service is used, do you want us to call 911 for you? 
                 <div className="btn-group" role="group" aria-label="...">
-                <button type="button" className="btn btn-default">Yes</button>
-                <button type="button" className="btn btn-default">No</button>
+                <button type="button" className="btn btn-default" onClick={this.setYes.bind(this)}>Yes</button>
+                <button type="button" className="btn btn-default" onClick={this.setNo.bind(this)}>No</button>
                  </div>
             </div>
         </div>
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <DropdownButton id={'hi'} title={this.state.activeLocation}>
-                <MenuItem value="Albemarle" eventKey="1" onClick={(value) => {this.updateLocation()}}>Albemarle</MenuItem>
+                <MenuItem value="Albemarle" eventKey="1" onClick={this.setAlbemarle.bind(this)}>Albemarle</MenuItem>
                 <MenuItem divider />
-                <MenuItem value="Arlington" eventKey="2" onClick={(value) => {this.updateLocation()}}>Arlington</MenuItem>
+                <MenuItem value="Arlington" eventKey="2" onClick={this.setArlington.bind(this)}>Arlington</MenuItem>
             </DropdownButton>
         </div>
       </div> 
@@ -68,7 +84,8 @@ class ClientCard extends Component {
 const mapStateToProps = (state) => {
   return {
     number: state.number,
-    location: state.location
+    location: state.location,
+    call: state.call
   }
 }
 
@@ -85,7 +102,13 @@ const mapDispatchToProps = (dispatch) => {
         type: 'SETLOCATION',
         payload: location
       })
-    }
+    },
+    setCall: (answer) => {
+      dispatch({
+        type: 'SETCALL',
+        payload: answer
+      })
+    },
   }
 }
 

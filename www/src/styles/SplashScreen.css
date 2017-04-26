@@ -1,0 +1,52 @@
+.main {
+    background-image: url("background.jpeg");
+    background-size: 100%;
+    width: 100vw;
+    height: 100vh;
+}
+
+.input {
+  width: fit-content;
+  text-align: center;
+  height: 40pt;
+}
+
+.main-input-group {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40pt;
+  width: 200pt;
+}
+
+.form-control {
+  font-family:  sans-serif;
+  font-size: 12pt;
+  border-radius: 300px;
+  font-weight: 700;
+  text-transform: initial;
+  opacity: 0.8;
+}
+
+.b {
+  height: 40pt;
+  font-family:  sans-serif;
+  font-size: 12pt;
+  border-radius: 300px;
+  font-weight: 700;
+  text-transform: initial;
+  opacity: 0.8;
+}
+
+.icon {
+  position: absolute;
+  margin: auto;
+  right: 0;
+  bottom: 5%;
+  left: 0;
+  background-color: white;
+  opacity: 0.5;
+}

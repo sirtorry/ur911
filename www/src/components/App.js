@@ -12,6 +12,7 @@ import ContactCard from './ContactCard';
 import ClientCard from './ClientCard';
 import firebase from 'firebase';
 import header from './header.png';
+import '../main.css';
 
 class App extends Component {
   constructor(props) {
@@ -23,12 +24,26 @@ class App extends Component {
       buttons: []   
     }
   }
-  componentDidMount() {
-    console.log('hi everyone');
+  componentWillMount() {
+    this.setState({
+      buttons: [(
+        <p className="App-intro centered">
+        <div className="row ">
+            <div className="col-xs-12 col-sm-12 col-lg-12">
+          <div className="input-group">
+            <input type="text" value={this.state.value} className="form-control" placeholder="Enter number here..." onChange={this.updateSearch.bind(this)}/>
+            <span className="input-group-btn">
+            <button className="btn btn-default" type="button" onClick={() => {this.enterNumber(this.props.number)}}>Go!</button>
+            </span>
+            </div>
+          </div>
+        </div>
+        </p>)]
+    })
   }
 
   statusReport() {
-
+    
   }
 
   enterNumber(num) {
@@ -70,7 +85,6 @@ class App extends Component {
   }
 
   upload() {
-    console.log('hi everyone');
     var name = this.props.number;
     const root = firebase.database().ref().child(name);
     console.log(this.props.contacts);
@@ -83,7 +97,12 @@ class App extends Component {
     for (var i = 1 ; i <= this.props.numberOfContacts ; i++) {
       contactsRef.child(this.props.contacts[i].number).set(this.props.contacts[i]);
     }
-    
+    this.setState({
+      buttons: [(
+        <div>
+          <h1>Awesome! You're done now, we'll take of the rest, thanks for using ur911!</h1>
+        </div>)]
+    })
     
   }
 
@@ -93,18 +112,7 @@ class App extends Component {
         <div className="btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <img className="header" src={header} />
         </div>
-        <p className="App-intro centered">
-        <div className="row ">
-            <div className="col-xs-12 col-sm-12 col-lg-12">
-          <div className="input-group">
-            <input type="text" value={this.state.value} className="form-control" placeholder="Enter number here..." onChange={this.updateSearch.bind(this)}/>
-            <span className="input-group-btn">
-            <button className="btn btn-default" type="button" onClick={() => {this.enterNumber(this.props.number)}}>Go!</button>
-            </span>
-            </div>
-          </div>
-        </div>
-        </p>
+        
         <div>
 
           {this.state.contacts}

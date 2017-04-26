@@ -22,6 +22,7 @@ class ContactCard extends Component {
         number: '888',
         call: "yes"
       },
+      call: "Call"
     }
   }
 
@@ -43,8 +44,7 @@ class ContactCard extends Component {
         ...this.state.data,
         name: event.target.value
       }
-    })
-    this.uploadInfo();
+    }, () => this.uploadInfo());
   }
 
   changeNumber(event) {
@@ -53,8 +53,8 @@ class ContactCard extends Component {
         ...this.state.data,
         number: event.target.value
       }
-    });
-    this.uploadInfo();
+    }, () => this.uploadInfo());
+    
   }
 
   changeCall(event) {
@@ -63,8 +63,7 @@ class ContactCard extends Component {
         ...this.state.data,
         call: event.target.value
       }
-    })
-    this.uploadInfo();
+    }, () => this.uploadInfo());
   }
 
   uploadInfo() {
@@ -72,14 +71,26 @@ class ContactCard extends Component {
     var index = this.state.i;
     const num = this.state.number;
     const number = {
-      call: this.state.data.call,
+      call_or_text: this.state.call,
       name: this.state.data.name,
       number: this.state.data.number
     }
     contacts[index] = number;
     console.log("look heere");
     this.props.setContacts(contacts);
-    console.log(this.props.contacts);
+    console.log(this.state.data);
+  }
+
+  clickCall() {
+    this.setState({
+      call: "Call"
+    }, () => this.uploadInfo());
+  }
+  ///////////
+  clickText() {
+    this.setState({
+      call: "Text"
+    }, () => this.uploadInfo());
   }
 
   render() {
@@ -88,7 +99,7 @@ class ContactCard extends Component {
         <hr />
         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <div className="input-group input-padding">
-            <input type="text" value={this.state.value} className="form-control" placeholder="Enter their name here..." onChange={this.changeName.bind(this)}/>
+            <input type="text" value={this.state.value} className="form-control" placeholder="Enter their name here..." onChangeCapture={this.changeName.bind(this)}/>
             <span className="input-group-addon">Contact Name</span>
             </div>
             <div className="input-group">
@@ -97,10 +108,10 @@ class ContactCard extends Component {
             </div>
         </div>
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <DropdownButton title="Call?" >
-                <MenuItem eventKey="1" >Call</MenuItem>
+            <DropdownButton title={this.state.call} >
+                <MenuItem eventKey="1" onClick={this.clickCall.bind(this)}>Call</MenuItem>
                 <MenuItem divider />
-                <MenuItem eventKey="2" active>Text</MenuItem>
+                <MenuItem eventKey="2" onClick={this.clickText.bind(this)}>Text</MenuItem>
             </DropdownButton>
         </div>
       </div> 
