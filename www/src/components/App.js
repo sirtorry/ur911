@@ -54,8 +54,7 @@ class App extends Component {
     this.setState({
       contacts: temp,
       buttons: [(
-        <div>
-      <hr />
+        <div className="buttons-bg">
         <div className="btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12" onClick={() =>{this.addContact()}}>
           <h2> + </h2>
         </div>
@@ -108,8 +107,10 @@ class App extends Component {
 
   render() {
     return (
+      <div className="main">
       <div className="App">
-        <div className="btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+        
+        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <img className="header" src={header} />
         </div>
         
@@ -120,7 +121,7 @@ class App extends Component {
         </div>
            
           {this.state.buttons}
-
+      </div>
       </div>
     );
   }

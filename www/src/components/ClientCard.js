@@ -54,7 +54,7 @@ class ClientCard extends Component {
 
   render() {
     return (
-      <div key={this.props.i} value={this.props.i} className="row">
+      <div key={this.props.i} value={this.props.i} className="row client-card">
         <hr />
         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <div className="input-group input-padding">

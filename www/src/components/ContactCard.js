@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import '../styles/App.css';
 import {DropdownButton, MenuItem }from 'react-bootstrap';
+import '../main.css';
 class ContactCard extends Component {
   constructor(props) {
     super(props);
@@ -95,16 +96,16 @@ class ContactCard extends Component {
 
   render() {
     return (
-      <div key={this.props.i} value={this.props.i} className="row">
+      <div key={this.props.i} value={this.props.i} className="row contact-card">
         <hr />
         <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <div className="input-group input-padding">
-            <input type="text" value={this.state.value} className="form-control" placeholder="Enter their name here..." onChangeCapture={this.changeName.bind(this)}/>
-            <span className="input-group-addon">Contact Name</span>
+            <input type="text" value={this.state.value} className="form-control" 
+            placeholder="Enter your contact's name here..." onChangeCapture={this.changeName.bind(this)}/>
             </div>
             <div className="input-group">
-            <input type="text" value={this.state.value} className="form-control" placeholder="Enter their number here..." onChange={this.changeNumber.bind(this)}/>
-            <span className="input-group-addon">Contact Number</span>
+            <input type="text" value={this.state.value} className="form-control" 
+            placeholder="Enter your contact's number here..." onChange={this.changeNumber.bind(this)}/>
             </div>
         </div>
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">

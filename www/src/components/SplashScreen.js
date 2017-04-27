@@ -11,6 +11,7 @@ import '../styles/App.css';
 import {DropdownButton, MenuItem }from 'react-bootstrap';
 import '../styles/SplashScreen.css';
 import '../main.css';
+import im from "./../splashlogo.png";
 var octicons = require('octicons');
 
 class SplashScreen extends Component {
@@ -32,6 +33,7 @@ handleKeyPress(target) {
   render() {
     return (
       <div className="main">
+        <img src={im} className="logo"></img>
           <div className="input-group main-input-group">
             <input type="text" value={this.state.value} 
             className="form-control input" 
