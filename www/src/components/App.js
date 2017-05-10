@@ -26,19 +26,24 @@ class App extends Component {
   }
   componentWillMount() {
     this.setState({
-      buttons: [(
-        <p className="App-intro centered">
-        <div className="row ">
-            <div className="col-xs-12 col-sm-12 col-lg-12">
-          <div className="input-group">
-            <input type="text" value={this.state.value} className="form-control" placeholder="Enter number here..." onChange={this.updateSearch.bind(this)}/>
-            <span className="input-group-btn">
-            <button className="btn btn-default" type="button" onClick={() => {this.enterNumber(this.props.number)}}>Go!</button>
-            </span>
-            </div>
-          </div>
+      contacts: [(
+        <div>
+        <ClientCard />
+        <ContactCard/>
+        
         </div>
-        </p>)]
+      )],
+      buttons: [(
+        <div className="buttons-bg">
+        <div className="btn btn-default col-xs-12 col-sm-12 col-md-12 col-lg-12" onClick={() =>{this.addContact()}}>
+          <h2> + </h2>
+        </div>
+        <hr />
+        <div className="btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12"  onClick={() =>{this.upload()}}>
+          <h2>Done!</h2>
+        </div>
+        </div>)]
+  
     })
   }
 
@@ -110,6 +115,7 @@ class App extends Component {
       <div className="main">
       <div className="App">
         
+      <div className="body">
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <img className="header" src={header} />
         </div>
@@ -121,6 +127,7 @@ class App extends Component {
         </div>
            
           {this.state.buttons}
+      </div>
       </div>
       </div>
     );

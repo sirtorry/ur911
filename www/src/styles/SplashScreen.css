@@ -1,7 +1,7 @@
 .main {
     background-image: url("background.jpeg");
      min-height: 100%;
-  min-width: 1024px;
+  min-width: 300px;
 	
   /* Set up proportionate scaling */
   width: 100%;

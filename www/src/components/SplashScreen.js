@@ -22,13 +22,20 @@ class SplashScreen extends Component {
 
     }
   }
-
+componentDidMount() {
+  console.log("just checking in!");
+}
   
 handleKeyPress(target) {
     if(target.charCode==13){
         console.log("enter works!")
     }
 }
+
+ enterNumber(num) {
+    console.log('hey there');
+    this.props.setNumber(this.state.localNumber);
+  }
 
   render() {
     return (
@@ -40,7 +47,7 @@ handleKeyPress(target) {
             placeholder="Enter your number here" 
             onKeyPress={this.handleKeyPress}/>
              <span className="input-group-btn">
-            <button className="btn btn-default b" ><Link to="/home">Go!</Link></button>
+            <button className="btn btn-default b"  onClick={() => {this.enterNumber(this.props.number)}}><Link to="/home">Go!</Link></button>
             </span>
           </div>
           <Link to="../https://www.github.com/sirtorry/ur911">
@@ -64,7 +71,18 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+    setNumber: (number) => {
+      dispatch({
+        type: 'SETNUMBER',
+        payload: number
+      })
+    },
+    setNumberOfContacts: (number) => {
+      dispatch({
+        type: 'SETNUMBEROFCONTACTS',
+        payload: number
+      })
+    }
   }
 }
 
