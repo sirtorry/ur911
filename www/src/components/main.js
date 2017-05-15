@@ -27,7 +27,7 @@ class Main extends Component {
   render() {
     return (
       <Router>
-          <div>
+        <div className="test">
         <Route exact path="/" component={SplashScreen} />
         <Route path="/home" component={App} />
         </div>

@@ -1,3 +1,7 @@
+.naruto {
+  height: 400px;
+}
+
 .header {
   width: 325pt;
   height: 100pt;
@@ -30,6 +34,8 @@
 
 .App {
   text-align: center;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 .App-logo {
@@ -64,14 +70,16 @@
 
 .contact-card {
     margin: auto;
-    background-color: blue;
+    background-color: rgba(255, 255, 255, 0.7);
     width: 500pt;
+    border-radius: 20pt;
     padding-bottom: 10pt;
 }
 
 .client-card {
     margin: auto;
-    background-color:red;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20pt;
     width: 500pt;
 }
 
