@@ -19,7 +19,8 @@
   background-attachment: fixed;
 	
   /* Set up positioning */
-  position: fixed;
+  position: absolute;
+  display: table;
   top: 0;
   left: 0;
 }
@@ -36,6 +37,8 @@
   text-align: center;
   overflow-y: scroll;
   height: 100vh;
+  display: table-cell;
+    vertical-align: middle;
 }
 
 .App-logo {
@@ -86,4 +89,22 @@
 .buttons-bg {
     margin: auto;
     width: 500pt;
+}
+
+.btn-next {
+  height: 40pt;
+  font-family:  sans-serif;
+  font-size: 12pt;
+  border-radius: 300px;
+  font-weight: 700;
+  text-transform: initial;
+  opacity: 0.8;
+}
+
+.nav-row {
+  padding-top: 10px;
+  width: 200px;
+  margin:0 auto;
+  border-width: 0;
+  box-shadow: transparent;
 }

@@ -61,11 +61,14 @@
 }
 
 .icon {
-  position: absolute;
   margin: auto;
   right: 0;
   bottom: 5%;
   left: 0;
   background-color: white;
   opacity: 0.5;
+  font-size: 30pt;
+  border-radius: 50px;
+  padding: 8px;
+  color: BLACK;
 }

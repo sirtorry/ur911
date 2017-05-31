@@ -14,6 +14,8 @@ import firebase from 'firebase';
 import header from './header.png';
 import '../main.css';
 
+import ClientCardDos from './ClientCardDos';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -113,22 +115,23 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-      <div className="App">
-        
-      <div className="body">
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-          <img className="header" src={header} />
-        </div>
-        
-        <div>
+        <div className="App">
 
-          {this.state.contacts}
-
+            <ClientCardDos />
+            
+            <div className="nav-row">
+              <div className="col col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <Link to="../https://www.github.com/sirtorry/ur911">
+                  <span className="glyphicon glyphicon-chevron-left icon"></span>
+                </Link>
+              </div>
+              <div className="col col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <Link to="../https://www.github.com/sirtorry/ur911">
+                  <span className="glyphicon glyphicon-chevron-right icon"></span>
+                </Link>
+              </div>
+            </div>
         </div>
-           
-          {this.state.buttons}
-      </div>
-      </div>
       </div>
     );
   }
@@ -163,3 +166,19 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+/*
+
+ <div className="body">
+        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+          <img className="header" src={header} />
+        </div>
+        
+        <div>
+
+          {this.state.contacts}
+
+        </div>
+           
+          {this.state.buttons}
+      </div>*/
